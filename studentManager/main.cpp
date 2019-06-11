@@ -17,6 +17,22 @@ void inPutInfor(int n,Student * arrSd);    	//ham nhap thong tin Student
 void menu();								//ham in thong tin lua chon
 int inputId(int i,Student* arrSd);   		// ham check ID trung
 
+
+float inputScore(){
+	float sCore;
+	bool check=true;
+	while(check){
+		cout<<" Score student :"<<endl;
+		cin>>sCore;
+		check=false;
+		if(sCore>10 ||sCore<0){
+			check=true;
+			cout<<"input sCore wrong, please input valid , ";
+		}
+	}
+	return sCore;
+};
+
 int inputId(int i,Student* arrSd){
 	int id;
 	bool check=true;
