@@ -16,6 +16,8 @@ void outPutInfor(Student *arrSd);			 //ham xuat thong tin
 void inPutInfor(int n,Student * arrSd);    	//ham nhap thong tin Student
 void menu();								//ham in thong tin lua chon
 int inputId(int i,Student* arrSd);   		// ham check ID trung
+float inputScore(); 						//ham check diem < 0 va >10
+
 
 
 float inputScore(){
@@ -56,7 +58,7 @@ void inPutInfor(int n,Student * arrSd) {
 	for(int i=0 ; i<n;i++){
 		cout<<"fill information student "<<i+1<<endl;
 		cout<< "fill ID student :"<<endl;
-		temp.id = inputId();
+		temp.id = inputId(i,arrSd);
 		cout<<" Name student :"<<endl;
 		getline(cin,temp.name);
 		cout<< "fill score student :"<<endl;
