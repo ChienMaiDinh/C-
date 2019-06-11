@@ -14,21 +14,26 @@ struct Student {
 	float score;
 };
 
-int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
-void outPutInfor(Student *arrSd);			 //ham xuat thong tin trong phien lam viec hien tai
-void inPutInfor(int n,Student * arrSd); 	//ham nhap thong tin Student
+#define MAX 100
+
+void outPutInfor(Student *arrSd,int countArray);			 //ham xuat thong tin trong phien lam viec hien tai
+void inPutInfor(int n,Student * arrSd,int &countArray); 	//ham nhap thong tin Student
 void rePlace(string &str,char before,char after); //xu ly doi ki tu dua vao file 
 int inputId(int i,Student* arrSd);   		// ham check ID trung
 float inputScore(); 						//ham check diem < 0 va >10
 void menu();								//ham in thong tin lua chon
-void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
+void saveToFile(Student* arrSd,int countArray); 			// ham luu mang da nhap vao file
 void loadFromFile();						//ham load thong tin tu file ra
 
-void outPutInfor(Student *arrSd){
+void outPutInfor(Student *arrSd,int countArray){
 		cout<< "All Information recently : \n\n";
-		cout<< " ID\t\tFULL NAME\t\tSCORE\n\n";
+		cout<<left<<setw(15)<<"ID";
+		cout<<left<<setw(30)<<"FULL NAME";
+		cout<<left<<setw(10)<<"SCORE"<<endl;
 	for(int i=0;i<countArray;i++ ){
-		cout<< arrSd[i].id<<"\t\t"<<arrSd[i].name<<"\t\t"<<arrSd[i].score<<endl;
+		cout<<left<<setw(15)<<arrSd[i].id;
+		cout<<left<<setw(30)<<arrSd[i].name;
+		cout<<left<<setw(10)<<arrSd[i].score<<endl;
 	}
 };
 
@@ -64,7 +69,7 @@ float inputScore(){
 	return sCore;
 };
 
-void inPutInfor(int n,Student * arrSd) {
+void inPutInfor(int n,Student * arrSd,int &countArray) {
 	Student temp;
 							//Dung bien countArray o day de tro tiep den vi tri tiep theo trong mang da nhap lan truoc
 	for(int i=countArray ; i<(n+countArray);i++){
@@ -92,7 +97,7 @@ void menu() {
 }
 
 
-void saveToFile(Student* arrSd){
+void saveToFile(Student* arrSd,int countArray){
 	ofstream fileOut;
 	fileOut.open("Student.txt",std::ios_base::out);
 	if(fileOut.is_open()){
@@ -135,7 +140,9 @@ void loadFromFile(){
 			fileIn>>sd.name;
 			rePlace(sd.name,'_',' ');
 			fileIn>>sd.score;
-			cout<< sd.id<<"\t\t"<<sd.name<<"\t\t\t"<<sd.score<<endl;
+		cout<<left<<setw(15)<<sd.id;
+		cout<<left<<setw(30)<<sd.name;
+		cout<<left<<setw(10)<<sd.score<<endl;
 		}
 		fileIn.close();
 	
@@ -148,8 +155,8 @@ void loadFromFile(){
 
 
 int main() {
-
-	Student * arrSd = new Student[100];
+	int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
+	Student * arrSd = new Student[MAX];
 	int choose;
 	do{
 		menu();
@@ -160,13 +167,13 @@ int main() {
 			int n;
 			cout<<"input number Student  : "<<endl;
 			cin>>n;
-			inPutInfor(n,arrSd);
+			inPutInfor(n,arrSd,countArray);
 			break;
 		case 2 :
-			outPutInfor(arrSd);
+			outPutInfor(arrSd,countArray);
 			break;
 		case 3 :
-			saveToFile(arrSd);
+			saveToFile(arrSd,countArray);
 			break;
 		case 4 :
 			loadFromFile();
@@ -175,7 +182,6 @@ int main() {
 			delete arrSd;
 			break;
 		}
-		
 	}while(choose!=0);
 	
 	return 0;

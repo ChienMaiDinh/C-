@@ -1,3 +1,4 @@
-2
-121 Dinh_Chien 8
-122 Van_Nho 9
+3
+102150086 Mai_Dinh_Chien 9
+102150084 Nguyen_Van_Hai 9.9
+102150068 Tran_Van_Nho 9.5
