@@ -17,6 +17,8 @@ void inPutInfor(int n,Student * arrSd);    	//ham nhap thong tin Student
 void menu();								//ham in thong tin lua chon
 int inputId(int i,Student* arrSd);   		// ham check ID trung
 float inputScore(); 						//ham check diem < 0 va >10
+int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
+
 
 
 
@@ -55,16 +57,17 @@ int inputId(int i,Student* arrSd){
 
 void inPutInfor(int n,Student * arrSd) {
 	Student temp;
-	for(int i=0 ; i<n;i++){
+							//Dung bien countArray o day de tro tiep den vi tri tiep theo trong mang da nhap lan truoc
+	for(int i=countArray ; i<(n+countArray);i++){
 		cout<<"fill information student "<<i+1<<endl;
-		cout<< "fill ID student :"<<endl;
 		temp.id = inputId(i,arrSd);
 		cout<<" Name student :"<<endl;
+		fflush(stdin);
 		getline(cin,temp.name);
-		cout<< "fill score student :"<<endl;
 		temp.score= inputScore();
 		arrSd[i]=temp;
 	}
+	countArray+=n;			// cong them gia tri countArray khi ta tiep tap nhap thong tin, con tro se tro den vi tri tiep theo
 }
 
 void menu() {
