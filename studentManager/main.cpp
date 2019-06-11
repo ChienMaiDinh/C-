@@ -15,6 +15,25 @@ struct Student {
 void outPutInfor(Student *arrSd);			 //ham xuat thong tin 
 void inPutInfor(int n,Student * arrSd);    	//ham nhap thong tin Student
 void menu();								//ham in thong tin lua chon
+int inputId(int i,Student* arrSd);   		// ham check ID trung
+
+int inputId(int i,Student* arrSd){
+	int id;
+	bool check=true;
+	while(check){
+		cout<<" id student :"<<endl;
+		cin>>id;
+		check=false;
+		for(int j=0;j<i;j++){
+			if(id==arrSd[j].id){
+			cout<<" id is exist, please input new id, ";
+			check=true;
+			}
+		}
+	}
+	return id;
+};
+
 
 void inPutInfor(int n,Student * arrSd) {
 	Student temp;
