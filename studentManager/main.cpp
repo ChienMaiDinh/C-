@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iostream>
 #include <fstream>
 #include <iomanip>
 
@@ -173,9 +172,11 @@ int main() {
 			loadFromFile();
 			break;
 		case 0 :
+			delete arrSd;
 			break;
 		}
 		
 	}while(choose!=0);
+	
 	return 0;
 }
