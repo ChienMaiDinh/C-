@@ -22,6 +22,15 @@ void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
 void loadFromFile();						//ham load thong tin tu file ra
 
 
+void outPutInfor(Student *arrSd){
+		cout<< "All Information recently : \n\n";
+		cout<< " ID \t\tFULL NAME\t\tSCORE\n\n";
+	for(int i=0;i<countArray;i++ ){
+		cout<< arrSd[i].id<<"\t\t"<<arrSd[i].name<<"\t\t\t"<<arrSd[i].score<<endl;
+	}
+};
+
+
 void loadFromFile(){
 	ifstream fileIn;
 	fileIn.open("Student.txt",ios_base::in);
