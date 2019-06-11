@@ -31,6 +31,28 @@ void menu() {
 
 int main(){
 	Student * arrSd = new Student[100]; 	//khoi tao mang student
-	
+	int choose;
+	do{
+		menu();
+		cin>>choose;
+		switch (choose)
+		{
+		case 1 :
+			int n;
+			cout<<"input number Student  : "<<endl;
+			cin>>n;
+			inPutInfor(n,arrSd);
+			break;
+		case 2 :
+			outPutInfor(arrSd);
+			break;
+		case 3 :
+			break;
+		case 4 :
+			break;
+		case 0 :
+			break;
+		}
+	}while(choose!=0);
 	return 0;
 }
