@@ -18,6 +18,7 @@ void menu();								//ham in thong tin lua chon
 int inputId(int i,Student* arrSd);   		// ham check ID trung
 float inputScore(); 						//ham check diem < 0 va >10
 int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
+void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
 
 
 
@@ -101,12 +102,14 @@ int main(){
 			outPutInfor(arrSd);
 			break;
 		case 3 :
+			saveToFile(arrSd);
 			break;
 		case 4 :
 			break;
 		case 0 :
 			break;
 		}
+		
 	}while(choose!=0);
 	return 0;
 }
