@@ -22,6 +22,30 @@ void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
 void loadFromFile();						//ham load thong tin tu file ra
 
 
+void loadFromFile(){
+	ifstream fileIn;
+	fileIn.open("Student.txt",ios_base::in);
+	if(fileIn.is_open()){
+		int count;
+		fileIn>>count;
+		cout<<"Load FILE to student : \n\n";
+		cout<< "number of student file:  "<<count<<"\n\n";
+		for(int i=0;i<count;i++){
+			Student sd;
+			fileIn>>sd.id;
+			fileIn>>sd.name;
+			rePlace(sd.name,'_',' ');
+			fileIn>>sd.score;
+			cout<< sd.id<<"\t\t"<<sd.name<<"\t\t\t"<<sd.score<<endl;
+		}
+		fileIn.close();
+	
+	}else{
+		cout<<"Load file Error"<< endl;
+	}
+}
+
+
 void saveToFile(Student* arrSd){
 	ofstream fileOut;
 	fileOut.open("Student.txt",std::ios_base::out);
