@@ -17,6 +17,7 @@ void inPutInfor(int n,Student * arrSd);    	//ham nhap thong tin Student
 void menu();								//ham in thong tin lua chon
 
 int main(){
+	Student * arrSd = new Student[100]; 	//khoi tao mang student
 	
 	return 0;
 }
