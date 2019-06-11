@@ -19,6 +19,8 @@ int inputId(int i,Student* arrSd);   		// ham check ID trung
 float inputScore(); 						//ham check diem < 0 va >10
 int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
 void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
+void loadFromFile();						//ham load thong tin tu file ra
+
 
 void saveToFile(Student* arrSd){
 	ofstream fileOut;
@@ -123,6 +125,7 @@ int main(){
 			saveToFile(arrSd);
 			break;
 		case 4 :
+			loadFromFile();
 			break;
 		case 0 :
 			break;
