@@ -20,8 +20,26 @@ float inputScore(); 						//ham check diem < 0 va >10
 int countArray=0; 							//bien cam canh giu chi so vi tri con tro Student dang tro toi
 void saveToFile(Student* arrSd); 			// ham luu mang da nhap vao file
 
-
-
+void saveToFile(Student* arrSd){
+	ofstream fileOut;
+	fileOut.open("Student.txt",std::ios_base::out);
+	if(fileOut.is_open()){
+		//save number Student
+		fileOut<<countArray<<endl;
+		for(int i=0;i<countArray;i++){
+			Student sd=arrSd[i];
+			int id=sd.id;
+			rePlace(sd.name,' ','_');
+			string name=sd.name;
+			float score=sd.score;
+			fileOut<<id<<" "<<name<<" "<<score<<endl;
+		}
+		cout<< "\nSave to file " <<filename<< "  Success "<<endl;
+		fileOut.close();
+	}else{
+		cout<<"Save to file Error"<<endl;
+	}
+};
 
 float inputScore(){
 	float sCore;
