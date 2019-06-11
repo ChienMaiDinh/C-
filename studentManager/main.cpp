@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 
 
@@ -26,9 +27,9 @@ void loadFromFile();						//ham load thong tin tu file ra
 
 void outPutInfor(Student *arrSd){
 		cout<< "All Information recently : \n\n";
-		cout<< " ID \t\tFULL NAME\t\tSCORE\n\n";
+		cout<< " ID\t\tFULL NAME\t\tSCORE\n\n";
 	for(int i=0;i<countArray;i++ ){
-		cout<< arrSd[i].id<<"\t\t"<<arrSd[i].name<<"\t\t\t"<<arrSd[i].score<<endl;
+		cout<< arrSd[i].id<<"\t\t"<<arrSd[i].name<<"\t\t"<<arrSd[i].score<<endl;
 	}
 };
 
@@ -70,8 +71,8 @@ void inPutInfor(int n,Student * arrSd) {
 	for(int i=countArray ; i<(n+countArray);i++){
 		cout<<"fill information student "<<i+1<<endl;
 		temp.id = inputId(i,arrSd);
+		cin.ignore();
 		cout<<" Name student :"<<endl;
-		fflush(stdin);
 		getline(cin,temp.name);
 		temp.score= inputScore();
 		arrSd[i]=temp;
@@ -106,7 +107,7 @@ void saveToFile(Student* arrSd){
 			float score=sd.score;
 			fileOut<<id<<" "<<name<<" "<<score<<endl;
 		}
-		cout<< "\nSave to file " <<filename<< "  Success "<<endl;
+		cout<< "\nSave to file " << "  Success "<<endl;
 		fileOut.close();
 	}else{
 		cout<<"Save to file Error"<<endl;
