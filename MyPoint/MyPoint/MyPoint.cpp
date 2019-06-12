@@ -40,7 +40,17 @@ void MyPoint::Display() {
 double MyPoint::Distance(MyPoint temp) {
 	int a = (this->mPosX - temp.mPosX)*(this->mPosX - temp.mPosX);
 	int b = (this->mPosY - temp.mPosY)*(this->mPosY - temp.mPosY);
-	return sqrt(a*a + b*b);
+	return sqrt(a+b);
 }
 
 
+void main() {
+	MyPoint *pointOne = new MyPoint(1, 1);
+	MyPoint *pointTwo = new MyPoint();
+	pointTwo->SetX(3);
+	pointTwo->SetY(5);
+	
+	cout << "distance between  pointOne  and point Two :" << endl << pointOne->Distance(*pointTwo)<<endl;
+
+		system("pause");
+}
