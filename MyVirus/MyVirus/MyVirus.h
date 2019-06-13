@@ -6,6 +6,7 @@ class MyVirus
 private :
 	char* m_dna;						 //to store the order of acid nucleic sequence (A, T, G,X)
 	int m_resistance;					//the virus resistance ability (10 – 30)
+	int next = 0;
 public:
 	MyVirus();
 	~MyVirus();
@@ -18,10 +19,10 @@ public:
 	char* Get_m_dna();
 	void Set_m_dna(char * dna);
 
-	/*virtual void DoBorn() = 0;
-	virtual void DoClone() = 0;
-	virtual std::list<MyVirus> DoDie() = 0;
-	virtual void InitResistance()=0;*/
+	virtual void DoBorn() = 0;
+	//virtual std::list<myvirus> doclone() = 0;
+	//virtual bool dodie() = 0;
+	//virtual void initresistance()=0;
 
 };
 

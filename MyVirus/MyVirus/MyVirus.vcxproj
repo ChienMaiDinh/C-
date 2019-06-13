@@ -146,9 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Flu.h" />
     <ClInclude Include="MyVirus.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Flu.cpp" />
     <ClCompile Include="MyVirus.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>

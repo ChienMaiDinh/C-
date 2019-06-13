@@ -6,9 +6,11 @@ private:
 	int m_color;	 //color of Flu virus is blue (value 0x0000ff) or red (value 0xff0000)
 public:
 	void DoBorn();
-	void DoClone();
-	std::list<MyVirus> DoDie();
-	void InitResistance();
+	void Set_m_color(int color);
+	int Get_m_color();
+	/*virtual std::list<myvirus> doclone() = 0;
+	virtual bool dodie() = 0;
+	virtual void initresistance() = 0;*/
 
 	Flu();
 	~Flu();

@@ -26,7 +26,7 @@ void MyVirus::LoadADNInformation(){
 	inFile.open("ATGX.bin");
 	if (inFile.is_open()) {
 		getline(inFile, temp);
-		char * cpyDNA = new char[temp.length() + 1];
+		char * cpyDNA = new char[temp.size() + 1];
 		for (int i = 0; i < temp.size(); i++){
 			cpyDNA[i] = temp[i];
 		}
