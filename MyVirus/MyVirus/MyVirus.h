@@ -9,7 +9,7 @@ public:
 	~MyVirus();
 	MyVirus(MyVirus * myVirus);
 	void LoadADNInformation();				//Load DNA information from a ATGX.bin and store it in m_dna.
-	void ReduceResistance(int medicine_resistance);
+	int ReduceResistance(int medicine_resistance);
 
 	int Get_m_resistance();
 	void Set_m_resistance(int resistance);
@@ -19,7 +19,7 @@ public:
 	virtual void DoBorn() = 0;
 	virtual void DoClone() = 0;
 	virtual void DoDie() = 0;
-	virtual void InitResistance();
+	virtual void InitResistance()=0;
 
 };
 

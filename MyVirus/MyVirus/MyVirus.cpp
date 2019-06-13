@@ -13,7 +13,8 @@ MyVirus::MyVirus(MyVirus * myVirus){
 void MyVirus::LoadADNInformation(){
 }
 
-void MyVirus::ReduceResistance(int medicine_resistance){
+int MyVirus::ReduceResistance(int medicine_resistance){
+	return this->m_resistance - medicine_resistance;
 }
 
 int MyVirus::Get_m_resistance() {
