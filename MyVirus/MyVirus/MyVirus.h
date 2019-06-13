@@ -1,4 +1,6 @@
 #pragma once
+#include <list>
+
 class MyVirus
 {
 private :
@@ -7,7 +9,7 @@ private :
 public:
 	MyVirus();
 	~MyVirus();
-	MyVirus(MyVirus * myVirus);
+	MyVirus(const MyVirus & myVirus);
 	void LoadADNInformation();				//Load DNA information from a ATGX.bin and store it in m_dna.
 	int ReduceResistance(int medicine_resistance);
 
@@ -16,10 +18,10 @@ public:
 	char* Get_m_dna();
 	void Set_m_dna(char * dna);
 
-	virtual void DoBorn() = 0;
+	/*virtual void DoBorn() = 0;
 	virtual void DoClone() = 0;
-	virtual void DoDie() = 0;
-	virtual void InitResistance()=0;
+	virtual std::list<MyVirus> DoDie() = 0;
+	virtual void InitResistance()=0;*/
 
 };
 
