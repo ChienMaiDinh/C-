@@ -62,5 +62,3 @@ void MyVirus::Set_m_dna(char * dna) {
 	this->m_dna = dna;
 }
 
-
-

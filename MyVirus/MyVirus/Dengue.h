@@ -11,7 +11,7 @@ public:
 	std::string Get_m_protein();
 	void Set_m_protein(std::string protein);
 
-	virtual void DoBorn() = 0;
+	void DoBorn() override;
 	//virtual std::list<myvirus> doclone() = 0;
 	//virtual bool dodie() = 0;
 	//virtual void initresistance()=0;

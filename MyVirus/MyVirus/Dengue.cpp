@@ -19,3 +19,8 @@ void Dengue::Set_m_protein(std::string protein){
 	this->m_protein = protein;
 }
 
+void Dengue::DoBorn()
+{
+	
+}
+

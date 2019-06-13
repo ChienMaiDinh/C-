@@ -10,9 +10,9 @@ void main() {
 	a->LoadADNInformation();
 	std::cout << "uyuyu";
 	std::cout << a->Get_m_dna();
-	
 	Flu * b=new Flu();
 	a = b;
+
 	a->DoBorn();
 
 

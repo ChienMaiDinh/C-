@@ -6,7 +6,6 @@ class MyVirus
 private :
 	char* m_dna;						 //to store the order of acid nucleic sequence (A, T, G,X)
 	int m_resistance;					//the virus resistance ability (10 – 30)
-	int next = 0;
 public:
 	MyVirus();
 	~MyVirus();

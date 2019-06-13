@@ -45,10 +45,9 @@ void Patient::InitResistance(){
 }
 
 void Patient::DoStart(){
-	int temp=rand() % 10 + 10;
-	for (int i = 0; i < temp; int i++){
-		MyVirus * a = new 
-	}
+//	int temp=rand() % 10 + 10;
+	//for (int i = 0; i < temp;  i++){
+	//}
 }
 
 Patient::Patient(){

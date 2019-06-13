@@ -7,7 +7,7 @@
 
 
 void Flu::DoBorn(){
-	std::cout << "Asdasd";
+	LoadADNInformation();
 }
 
 void Flu::Set_m_color(int color){
