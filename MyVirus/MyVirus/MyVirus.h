@@ -9,6 +9,7 @@ protected :
 public:
 	MyVirus();
 	~MyVirus();
+	MyVirus(char * dna, int resistance);
 	MyVirus(const MyVirus & myVirus);
 	void LoadADNInformation();				//Load DNA information from a ATGX.bin and store it in m_dna.
 	int ReduceResistance(int medicine_resistance);

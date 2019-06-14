@@ -12,6 +12,11 @@ MyVirus::~MyVirus(){
 	delete m_dna;
 }
 
+MyVirus::MyVirus(char * dna, int resistance){
+	this->m_dna = dna;
+	this->m_resistance = resistance;
+}
+
 MyVirus::MyVirus(const MyVirus & myVirus){
 	this->m_resistance = myVirus.m_resistance;
 	m_dna = new char;
