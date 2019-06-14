@@ -30,6 +30,16 @@ void Flu::Doclone(){
 	Patient::Temp_virusList.merge(temp);
 }
 
+void Flu::initresistance(){
+	if (this->m_color = 0x0000ff) {
+		//rd 6 phan tu tu 10-15 
+		m_resistance = rand() % 6 + 10;
+	}else {
+		//rd 11 phan tu tu 10-20
+		m_resistance = rand() % 11 + 10;
+	}
+}
+
 void Flu::Set_m_color(int color){
 	this->m_color = color;
 }
@@ -41,6 +51,7 @@ int Flu::Get_m_color()
 
 Flu::Flu(){
 	DoBorn();
+	initresistance();
 }
 
 
