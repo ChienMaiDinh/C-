@@ -7,7 +7,8 @@ private:
 public:
 	Dengue();
 	~Dengue();
-
+	Dengue(char * dna, int resistance, std::string protein);
+	
 	std::string Get_m_protein();
 	void Set_m_protein(std::string protein);
 
