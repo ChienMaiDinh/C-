@@ -1,9 +1,11 @@
 #include "Patient.h"
+#include <list>
+#include "Flu.h"
+#include <iostream>
+#include "Dengue.h"
 
 
-
-int Patient::Get_m_resistance()
-{
+int Patient::Get_m_resistance(){
 	return this->m_resistance;
 }
 
@@ -11,8 +13,7 @@ void Patient::Set_m_resistance(int resistance){
 	this->m_resistance = resistance;
 }
 
-int Patient::Get_m_state()
-{
+int Patient::Get_m_state(){
 	return this->m_state;
 }
 
@@ -45,16 +46,24 @@ void Patient::InitResistance(){
 }
 
 void Patient::DoStart(){
-//	int temp=rand() % 10 + 10;
-	//for (int i = 0; i < temp;  i++){
-	//}
+	this->m_virusList.clear();		//xóa list
+	this->m_state = 1;	
+	int temp=10 + rand() % 10;
+	for (int i = 0; i < temp;  i++){
+		if ((rand() % 2) == 1) {
+			this->m_virusList.push_back(new Flu());
+		}
+		else {
+			this->m_virusList.push_back(new Dengue());
+		}
+	}
 }
 
 Patient::Patient(){
 	this->InitResistance();
+	this->DoStart();
 }
 
 
-Patient::~Patient()
-{
+Patient::~Patient(){
 }
