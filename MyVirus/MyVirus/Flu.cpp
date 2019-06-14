@@ -6,6 +6,10 @@
 
 
 
+Flu::Flu(char * dna, int resistance, int color) : MyVirus(m_dna, m_resistance){
+	this->m_color = color;
+}
+
 void Flu::DoBorn(){
 	LoadADNInformation();
 }
