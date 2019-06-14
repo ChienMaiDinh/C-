@@ -10,8 +10,8 @@ Dengue::Dengue()
 }
 
 
-Dengue::~Dengue()
-{
+Dengue::~Dengue(){
+	Dodie();
 }
 
 Dengue::Dengue(char * dna, int resistance, std::string protein){

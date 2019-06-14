@@ -11,10 +11,11 @@ public:
 	
 	std::string Get_m_protein();
 	void Set_m_protein(std::string protein);
+	std::list<MyVirus *> temp;
 
 	void DoBorn() override;
-	//virtual std::list<myvirus> doclone() = 0;
-	//virtual bool dodie() = 0;
-	//virtual void initresistance()=0;
+	void Doclone() override;
+	bool Dodie() override;
+	void initresistance() override;
 };
 
