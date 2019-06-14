@@ -38,3 +38,17 @@ void Dengue::Doclone(){
 	Patient::Temp_virusList.merge(temp);
 }
 
+bool Dengue::Dodie(){
+	return true;
+}
+
+void Dengue::initresistance(){
+	if(this->m_protein.compare("NS3")) {
+		m_resistance = rand() % 10 + 1;
+	}else if (this->m_protein.compare("NS5")) {
+		m_resistance = rand() % 10 + 11;
+	}else {
+		m_resistance = rand() % 10 + 21;
+	}
+}
+
