@@ -20,6 +20,7 @@ MyVirus::MyVirus(const MyVirus & myVirus){
 
 
 
+
 void MyVirus::LoadADNInformation(){
 	ifstream inFile;
 	string temp;
