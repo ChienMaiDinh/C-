@@ -20,9 +20,9 @@ public:
 	void Set_m_dna(char * dna);
 
 	virtual void DoBorn() = 0;
-	//virtual std::list<myvirus> doclone() = 0;
-	//virtual bool dodie() = 0;
-	//virtual void initresistance()=0;
+	virtual void Doclone() = 0;
+	virtual bool Dodie() = 0;
+	virtual void initresistance()=0;
 
 };
 
