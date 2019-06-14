@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "Patient.h"
 
 
 
@@ -17,6 +18,16 @@ void Flu::DoBorn(){
 	}else {
 		this->m_color = 0xff0000;
 	}
+}
+
+bool Flu::Dodie(){
+	return true;
+}
+
+void Flu::Doclone(){
+	std::list<MyVirus *> temp;
+	temp.push_back(new Flu(m_dna, m_resistance, this->m_color));
+	Patient::Temp_virusList.merge(temp);
 }
 
 void Flu::Set_m_color(int color){
