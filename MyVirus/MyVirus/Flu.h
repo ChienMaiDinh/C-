@@ -7,16 +7,15 @@ private:
 public:
 	
 	Flu(char * dna, int resistance, int color);
-
+	std::list<MyVirus *> temp;
 	void DoBorn() override;
 	bool Dodie() override;
 	virtual void Doclone() override;
+	virtual void initresistance() override;
 
 	void Set_m_color(int color);
 	int Get_m_color();
-	//virtual std::list<myvirus> doclone() = 0;
 	
-	//virtual void initresistance() = 0;
 
 	Flu();
 	~Flu();

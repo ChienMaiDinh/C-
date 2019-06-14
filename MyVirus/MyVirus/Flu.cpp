@@ -25,7 +25,6 @@ bool Flu::Dodie(){
 }
 
 void Flu::Doclone(){
-	std::list<MyVirus *> temp;
 	temp.push_back(new Flu(m_dna, m_resistance, this->m_color));
 	Patient::Temp_virusList.merge(temp);
 }
@@ -56,4 +55,5 @@ Flu::Flu(){
 
 
 Flu::~Flu(){
+	Dodie();
 }
