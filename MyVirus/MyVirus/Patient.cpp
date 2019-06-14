@@ -30,7 +30,6 @@ void Patient::Set_ListVirus(){
 }
 
 
-
 void Patient::InitResistance(){
 	srand(time_t(NULL));
 	//random 8001 gia tri tu 1000>9000
@@ -53,9 +52,37 @@ void Patient::DoStart(){
 	}
 }
 
-void Patient::TakeMedicine(int resistance){
-
+void Patient::TakeMedicine(int medicine_resistance){
+	this->Set_ListVirus();
+	std::list<MyVirus *> ::iterator temp;
+	int countVirus = 0;
+	//duyet list tu head den tail , sau do iter tro it den null thi dung;
+	for (std::list<MyVirus *> ::iterator iter = this->m_virusList.begin(); iter != this->m_virusList.end();iter++) {
+		(*iter)->ReduceResistance(medicine_resistance);
+		if ((*iter)->Get_m_resistance() > 0) {	
+			this->m_resistance-= (*iter)->Get_m_resistance();	
+			this->Set_ListVirus();				//them clone vao list hien tai
+			countVirus++;
+		}else {
+			temp = iter;						
+			this->m_virusList.erase(temp);
+		}
+	}
+	if (this->m_resistance < 0) {
+		std::cout << "Die soon , You were killed by "<< countVirus <<" viruses";
+	}else {
+		std::cout << "Congratulations";
+	}
 }
+
+
+
+bool Patient::DoDie()
+{
+	return true;
+}
+
+
 
 Patient::Patient(){
 	this->InitResistance();
