@@ -25,8 +25,8 @@ std::list<MyVirus*> Patient::Get_ListVirus(){
 	return this->m_virusList;
 }
 
-void Patient::Set_ListVirus(std::list<MyVirus*> virusList){
-	this->m_virusList.merge(virusList);
+void Patient::Set_ListVirus(){
+	this->m_virusList.merge(Temp_virusList);
 }
 
 
