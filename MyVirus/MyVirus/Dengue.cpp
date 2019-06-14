@@ -2,7 +2,7 @@
 #include <string>
 #include "Patient.h"
 #include "MyVirus.h"
-
+#include <list>
 
 
 Dengue::Dengue()
@@ -33,6 +33,8 @@ void Dengue::DoBorn(){
 }
 
 void Dengue::Doclone(){
-
+	temp.push_back(new Dengue(m_dna, m_resistance, m_protein));
+	temp.push_back(new Dengue(m_dna, m_resistance, m_protein));
+	Patient::Temp_virusList.merge(temp);
 }
 
