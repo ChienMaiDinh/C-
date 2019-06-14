@@ -33,22 +33,16 @@ void Patient::Set_ListVirus(std::list<MyVirus*> virusList){
 
 void Patient::InitResistance(){
 	srand(time_t(NULL));
-	int ranDom = 0;
-	for (int i = 4; i>0;i--) {
-		if (i == 1) {
-			ranDom += rand() % 10;
-		}
-		else {
-			ranDom += (rand() % 10)*(i - 1);
-		}
-	}
-	this->m_resistance = ranDom;
+	//random 8001 gia tri tu 1000>9000
+	this->m_resistance = rand()% (8001) +1000;
 }
 
 void Patient::DoStart(){
+	srand(time_t(NULL));
 	this->m_virusList.clear();		//xóa list
 	this->m_state = 1;	
-	int temp=10 + rand() % 10;
+	//rd 11 gia tri tu 10>20
+	int temp=rand() % 11 + 10;
 	for (int i = 0; i < temp;  i++){
 		if ((rand() % 2) == 1) {
 			this->m_virusList.push_back(new Flu());
@@ -57,6 +51,10 @@ void Patient::DoStart(){
 			this->m_virusList.push_back(new Dengue());
 		}
 	}
+}
+
+void Patient::TakeMedicine(int resistance){
+
 }
 
 Patient::Patient(){
