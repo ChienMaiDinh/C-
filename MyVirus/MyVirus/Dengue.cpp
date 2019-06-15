@@ -1,8 +1,10 @@
 #include "Dengue.h"
+#include <iostream>
 #include <string>
 #include "Patient.h"
 #include "MyVirus.h"
 #include <list>
+#include <time.h>
 
 
 Dengue::Dengue()
@@ -32,23 +34,32 @@ void Dengue::DoBorn(){
 	this->m_protein = temp[rand() % 3];
 }
 
-void Dengue::Doclone(){
-	temp.push_back(new Dengue(m_dna, m_resistance, m_protein));
-	temp.push_back(new Dengue(m_dna, m_resistance, m_protein));
-	Patient::Temp_virusList.merge(temp);
+std::list<MyVirus *> Dengue::Doclone(){
+	temp.push_back(new Dengue(m_dna,MyVirus::Get_m_resistance(),this->m_protein));
+	temp.push_back(new Dengue(m_dna, MyVirus::Get_m_resistance(), this->m_protein));
+	std::list<MyVirus *> a = temp;
+	temp.clear();
+	return a;
 }
 
-bool Dengue::Dodie(){
-	return true;
+std::list<MyVirus*> Dengue::Dodie(){
+	temp.clear();
+	return temp;
 }
 
 void Dengue::initresistance(){
+	srand(time(NULL));
 	if(this->m_protein.compare("NS3")) {
 		m_resistance = rand() % 10 + 1;
+		std::cout << "sinh ra virus co " << m_resistance << "mau Dengu\n";
+
 	}else if (this->m_protein.compare("NS5")) {
 		m_resistance = rand() % 10 + 11;
+		std::cout << "sinh ra virus co " << m_resistance << "mau DEngu\n";
+
 	}else {
 		m_resistance = rand() % 10 + 21;
+		std::cout << "sinh ra virus co " << m_resistance << "mau DEngu\n";
 	}
 }
 

@@ -8,17 +8,20 @@
 
 int main()
 {
+
 	Patient p;
 	char t = 0;
 	while (p.Get_m_state() == 1)
 	{
-		printf("Take Medicine (0 = NO, 1 = YES");
+		printf("Take Medicine (0 = NO, 1 = YES)");
 		std::cin>>&t;
-		if (t == 1)
+		if (t == '1')
 		{
 			int min = 1;
 			int max = 60;
-			int medicine_resistance = min + (rand() % (int)(max - min + 1));
+			//int medicine_resistance = min + (rand() % (int)(max - min + 1));
+			//std::cout << "medicine" << medicine_resistance << "\n";
+			int medicine_resistance = 1;
 			p.TakeMedicine(medicine_resistance);
 		}
 	}

@@ -48,16 +48,17 @@ void MyVirus::LoadADNInformation(){
 }
 
 
-int MyVirus::ReduceResistance(int medicine_resistance){
+std::list<MyVirus*> MyVirus::ReduceResistance(int medicine_resistance){
 	this->m_resistance-= medicine_resistance;
 	if (this->m_resistance <= 0) {
 		//virus was destroyed
-		this->Dodie();
+		std::cout << "Giet Virus \n";
+		return Dodie();
 	}else {
 		// x Virus
-		this->Doclone();
+		std::cout << "Nhan Virrus \n";
+		return Doclone();
 	}
-	return this->m_resistance;
 }
 
 int MyVirus::Get_m_resistance() {
@@ -75,3 +76,4 @@ char * MyVirus::Get_m_dna() {
 void MyVirus::Set_m_dna(char * dna) {
 	this->m_dna = dna;
 }
+

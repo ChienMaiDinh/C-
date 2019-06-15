@@ -3,7 +3,7 @@
 #include "Flu.h"
 #include <iostream>
 #include "Dengue.h"
-
+#include <time.h>
 
 int Patient::Get_m_resistance(){
 	return this->m_resistance;
@@ -21,13 +21,23 @@ void Patient::Set_m_state(int state){
 	this->m_state = state;
 }
 
-std::list<MyVirus*> Patient::Get_ListVirus(){
+std::list<MyVirus*> Patient::Get_ListVirus() {
 	return this->m_virusList;
 }
 
-void Patient::Set_ListVirus(){
-	this->m_virusList.merge(Temp_virusList);
+void Patient::Set_ListVirus(std::list<MyVirus*> temp){
+	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
+		this->m_virusList.push_back(*iter);
+	}
+	temp.clear();
 }
+
+
+
+
+
+
+
 
 
 void Patient::InitResistance(){
@@ -37,7 +47,7 @@ void Patient::InitResistance(){
 }
 
 void Patient::DoStart(){
-	srand(time_t(NULL));
+	srand(time(NULL));
 	this->m_virusList.clear();		//xóa list
 	this->m_state = 1;	
 	//rd 11 gia tri tu 10>20
@@ -45,40 +55,61 @@ void Patient::DoStart(){
 	for (int i = 0; i < temp;  i++){
 		if ((rand() % 2) == 1) {
 			this->m_virusList.push_back(new Flu());
+			std::cout << "-----------";
 		}
 		else {
 			this->m_virusList.push_back(new Dengue());
+			std::cout << "++++++";
 		}
 	}
 }
 
 void Patient::TakeMedicine(int medicine_resistance){
-	this->Set_ListVirus();
 	std::list<MyVirus *> ::iterator temp;
+	std::list<MyVirus *> listTemp;
 	int countVirus = 0;
+	int sumBloodVirus = 0;
+	int dem =0 ;
 	//duyet list tu head den tail , sau do iter tro it den null thi dung;
-	for (std::list<MyVirus *> ::iterator iter = this->m_virusList.begin(); iter != this->m_virusList.end();iter++) {
-		(*iter)->ReduceResistance(medicine_resistance);
-		if ((*iter)->Get_m_resistance() > 0) {	
-			this->m_resistance-= (*iter)->Get_m_resistance();	
-			this->Set_ListVirus();				//them clone vao list hien tai
+	for (std::list<MyVirus *> ::iterator iter = this->m_virusList.begin(); iter != this->m_virusList.end();) {
+		dem++;
+		std::cout << "LAN  "<<dem<<"  :\n\n";
+		std::cout <<"size virus "<< m_virusList.size() << " \n";
+		
+		listTemp = (*iter)->ReduceResistance(medicine_resistance);
+		//	std::cout <<"so virus con : "<< m_virusList.size()-dem << " \n\n";
+		if ((*iter)->Get_m_resistance()> 0) {
+			this->Set_ListVirus(listTemp);
+			sumBloodVirus += (*iter)->Get_m_resistance();
+			std::cout << "luong mau virus hien tai con " << (*iter)->Get_m_resistance() << "\n";
+			std::cout << "tong mau virus : " << sumBloodVirus << "\n";
+			//this->m_resistance-= (*iter)->Get_m_resistance();
 			countVirus++;
+			if (this->m_resistance < sumBloodVirus) {
+				std::cout << "tong mau cua ban chi " << this->m_resistance << " :E \n";
+				std::cout << " \n\n        You Die, You were killed by " << countVirus << " viruses   \t\t";
+				break;
+			}
 		}else {
-			temp = iter;						
-			this->m_virusList.erase(temp);
+				temp = iter;
+				iter++;
+				m_virusList.erase(temp);
+				if (iter == m_virusList.end()) {
+					std::cout << "\n\n    Congratulations , You Know Professinal kill Virus  \t\t";
+				}
 		}
 	}
-	if (this->m_resistance < 0) {
-		std::cout << "Die soon , You were killed by "<< countVirus <<" viruses";
+	/*std::cout << m_virusList.size() << " size virus tong hien tai la : \n";
+	if (this->m_resistance < sumBloodVirus) {
+		std::cout << " You Die, You were killed by "<< countVirus <<" viruses";
 	}else {
-		std::cout << "Congratulations";
-	}
+		
+	}*/
 }
 
 
-
 bool Patient::DoDie()
-{
+{	
 	return true;
 }
 
@@ -91,4 +122,5 @@ Patient::Patient(){
 
 
 Patient::~Patient(){
+	DoDie();
 }
