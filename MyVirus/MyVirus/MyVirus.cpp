@@ -1,6 +1,6 @@
 #include "MyVirus.h"
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -39,9 +39,7 @@ void MyVirus::LoadADNInformation(){
 		cpyDNA[temp.size()] = '\0';
 		this->Set_m_dna(cpyDNA);
 		//cout << this->Get_m_dna();   //test 
-
 		inFile.close();
-		cout << "Load file success\n";
 	}else {
 		cout << "Load file Error\n" ;
 	}
@@ -52,14 +50,15 @@ std::list<MyVirus*> MyVirus::ReduceResistance(int medicine_resistance){
 	this->m_resistance-= medicine_resistance;
 	if (this->m_resistance <= 0) {
 		//virus was destroyed
-		std::cout << "Giet Virus \n";
+		std::cout << "Killer Virus \n";
 		return Dodie();
 	}else {
 		// x Virus
-		std::cout << "Nhan Virrus \n";
+		std::cout << "Clone Virrus \n";
 		return Doclone();
 	}
 }
+
 
 int MyVirus::Get_m_resistance() {
 	return this->m_resistance;

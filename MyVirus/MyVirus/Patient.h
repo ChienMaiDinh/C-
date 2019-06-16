@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "MyVirus.h"
+#include <cstdlib>
+#include <ctime>
 #include <list>
 
 class Patient
@@ -9,7 +11,6 @@ class Patient
 	std::list<MyVirus*> m_virusList;	// The current virus in his bod
 public:
 	//Save tam thoi list Doclone sinh ra
-	static std::list<MyVirus *> Temp_virusList;
 	int Get_m_resistance();
 	void Set_m_resistance(int resistance);
 	int Get_m_state();
@@ -18,7 +19,9 @@ public:
 	void Set_ListVirus(std::list<MyVirus*> temp);
 	void InitResistance();
 	void DoStart();
-	void TakeMedicine(int resistance);
+	int TakeMedicine(int resistance);
+
+	int bornRanDomNumber(int head, int tail);
 	bool DoDie();
 	Patient();
 	~Patient();

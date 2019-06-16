@@ -1,5 +1,7 @@
 #pragma once
 #include <list>
+
+
 class MyVirus
 {
 protected :								
@@ -14,6 +16,8 @@ public:
 	MyVirus(const MyVirus & myVirus);
 	void LoadADNInformation();				//Load DNA information from a ATGX.bin and store it in m_dna.
 	std::list<MyVirus*> ReduceResistance(int medicine_resistance);
+
+	
 
 	int Get_m_resistance();
 	void Set_m_resistance(int resistance);

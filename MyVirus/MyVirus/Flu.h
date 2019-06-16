@@ -11,7 +11,6 @@ public:
 	std::list<MyVirus*> Dodie() override;
 	std::list<MyVirus*> Doclone() override;
 	void initresistance() override;
-	//void Doclone() override;
 	void Set_m_color(int color);
 	int Get_m_color();
 	
