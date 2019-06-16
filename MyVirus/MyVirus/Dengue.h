@@ -8,14 +8,14 @@ public:
 	Dengue();
 	~Dengue();
 	Dengue(char * dna, int resistance, std::string protein);
-	
+	std::list<MyVirus *> temp;
 	std::string Get_m_protein();
 	void Set_m_protein(std::string protein);
-	std::list<MyVirus *> temp;
-
 	void DoBorn() override;
-	void Doclone() override;
-	bool Dodie() override;
+	std::list<MyVirus*> Doclone() override;
+	//void Doclone() override;
+
+	std::list<MyVirus*> Dodie() override;
 	void initresistance() override;
 };
 
