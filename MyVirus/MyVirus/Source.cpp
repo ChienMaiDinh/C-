@@ -1,5 +1,4 @@
 #include "MyVirus.h"
-#include "Flu.h"
 #include <iostream>
 #include <stdio.h>
 #include <cstdlib>
@@ -7,19 +6,25 @@
 #include <iostream>
 
 int main()
-{
+{ 
+	srand(time(NULL));
 	Patient p;
-	char t = 0;
+	int t = 0;
 	while (p.Get_m_state() == 1)
 	{
-		printf("Take Medicine (0 = NO, 1 = YES");
-		std::cin>>&t;
+		printf("Take Medicine (0 = NO, 1 = YES) \n");
+		std::cout << " Kill Virus slowly, Hope you waiting for program process , thank you \n";
+		std::cin>>t;
 		if (t == 1)
 		{
 			int min = 1;
-			int max = 60;
+			int max = 5;
 			int medicine_resistance = min + (rand() % (int)(max - min + 1));
+			std::cout << "Value medicine :" << medicine_resistance << "\n\n";
+			
+
 			p.TakeMedicine(medicine_resistance);
 		}
 	}
+	system("pause");
 }
