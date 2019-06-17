@@ -1,7 +1,7 @@
 #pragma once
 #include "MyVirus.h"
 #include <string>
-class Dengue:public MyVirus{
+class Dengue:public MyVirus{ 
 private:
 	std::string m_protein;	//protein in virus represent the type of Dengue virus.
 public:

@@ -2,7 +2,7 @@
 #include "MyVirus.h"
 class Flu : public MyVirus
 {
-private:
+private: 
 	int m_color;	 //color of Flu virus is blue (value 0x0000ff) or red (value 0xff0000) 
 public:
 	std::list<MyVirus *> temp;

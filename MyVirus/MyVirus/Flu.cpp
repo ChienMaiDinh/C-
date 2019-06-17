@@ -24,6 +24,9 @@ void Flu::DoBorn(){
 }
 
 std::list<MyVirus*> Flu::Dodie(){
+	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
+		delete *iter;
+	}
 	temp.clear();
 	return temp;
 }
@@ -45,7 +48,7 @@ void Flu::initresistance(){
 	srand(time(NULL));
 	if (this->m_color = 0x0000ff) {
 		//rd 6 phan tu tu 10-15 
-		m_resistance = rand() % 6 + 10;
+		m_resistance = rand() % 6 + 10; 
 		std::cout << " have " << m_resistance << " blood\n";
 	}else {
 		//rd 11 phan tu tu 10-20
