@@ -42,13 +42,11 @@ void Patient::InitResistance(){
 }
 
 void Patient::DoStart(){
-	this->m_virusList.clear();		//xÃ³a list
+	this->m_virusList.clear();		//xóa list
 	this->m_state = 1;	
-
 	int temp = bornRanDomNumber(10, 20);
 	for (int i = 0; i < temp;  i++){
 		Sleep(200);
-
 		if (bornRanDomNumber(0,1) == 1) {
 			std::cout <<i+1<< "	.Born Virus Dengue ";
 			this->m_virusList.push_back(new Dengue());
@@ -81,10 +79,9 @@ int Patient::TakeMedicine(int medicine_resistance){
 			m_virusList.erase(iter++);
 			if (this->m_resistance < sumBloodVirus) {
 				std::cout << "Total blood patient just  " << this->m_resistance << " :E \n";
-
 				std::cout << " \n\n\t      You Die, You were killed by " << countVirus << " viruses in total "<< m_virusList.size() <<" Virus ";
-				break;
 				this->m_state = (0);
+				break;
 			}
 		}else {
 				m_virusList.erase(iter++);
@@ -93,6 +90,9 @@ int Patient::TakeMedicine(int medicine_resistance){
 					this->Set_m_state(0);
 				}
 		}
+	}
+	if (this->Get_m_state ()== 1) {
+		std::cout << "\n\t\t\t You Still Live ";
 	}
 	std::cout << "\n";
 	std::cout << "\t\t You have used take medicine value : " << medicine_resistance << "\n";
