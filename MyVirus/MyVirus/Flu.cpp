@@ -24,6 +24,9 @@ void Flu::DoBorn(){
 }
 
 std::list<MyVirus*> Flu::Dodie(){
+	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
+		delete *iter;
+	}
 	temp.clear();
 	return temp;
 }

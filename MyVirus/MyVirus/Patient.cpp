@@ -28,7 +28,7 @@ std::list<MyVirus*> Patient::Get_ListVirus() {
 
 void Patient::Set_ListVirus(std::list<MyVirus*> temp){
 	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
-		this->m_virusList.push_back(*iter);
+		this->m_virusList.push_front(*iter);
 	}
 	temp.clear();
 }
@@ -44,11 +44,9 @@ void Patient::InitResistance(){
 void Patient::DoStart(){
 	this->m_virusList.clear();		//xóa list
 	this->m_state = 1;	
-	//int temp=rand() % 11 + 10;
 	int temp = bornRanDomNumber(10, 20);
 	for (int i = 0; i < temp;  i++){
-		//if (rand() % 2 == 0)
-		Sleep(500);
+		Sleep(200);
 		if (bornRanDomNumber(0,1) == 1) {
 			std::cout <<i+1<< "	.Born Virus Dengue ";
 			this->m_virusList.push_back(new Dengue());
@@ -83,19 +81,23 @@ int Patient::TakeMedicine(int medicine_resistance){
 			m_virusList.erase(temp);
 			if (this->m_resistance < sumBloodVirus) {
 				std::cout << "Total blood patient just  " << this->m_resistance << " :E \n";
-				std::cout << " \n\n        You Die, You were killed by " << countVirus << " viruses in total "<< m_virusList.size() <<" Virus ";
+				std::cout << " \n\n\t      You Die, You were killed by " << countVirus << " viruses in total "<< m_virusList.size() <<" Virus ";
 				break;
+				this->m_state = (0);
 			}
 		}else {
 				temp = iter;
 				iter++;
 				m_virusList.erase(temp);
 				if (iter == m_virusList.end()) {
-					std::cout << "\n\n    Congratulations , You Know Professinal kill Virus  \t\t";
+					std::cout << "\n\n\t    Congratulations , You Know Professinal kill Virus  \t\t";
+					this->Set_m_state(0);
 				}
 		}
 	}
-	this->Set_m_state(0);
+	std::cout << "\n";
+	std::cout << "\t\t You have use take medicine value : " << medicine_resistance << "\n";
+	std::cout << "\t\t========================================\n\n";
 	return this->Get_m_state();
 }
 

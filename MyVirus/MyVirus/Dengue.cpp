@@ -53,6 +53,9 @@ std::list<MyVirus *> Dengue::Doclone(){
 }
 
 std::list<MyVirus*> Dengue::Dodie(){
+	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
+		delete *iter;
+	}
 	temp.clear();
 	return temp;
 }
