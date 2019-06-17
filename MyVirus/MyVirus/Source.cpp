@@ -6,6 +6,7 @@
 #include <iostream>
 
 int main()
+
 { 
 	srand(time(NULL));
 	Patient p;
@@ -15,8 +16,6 @@ int main()
 	{
 		std::cout << " \n\nKill Virus slowly, Hope you waiting for program process , thank you \n";
 		printf(" \nTake Medicine (0 = NO, 1 = YES) \n");
-		
-		
 		std::cin>>t;
 		if (t == 1)
 		{
@@ -24,9 +23,10 @@ int main()
 			std::cout << "============================================\n\n";
 			a++;
 			int min = 1;
-			int max = 60;
+			int max = 5;
 			int medicine_resistance = min + (rand() % (int)(max - min + 1));
 			std::cout << "Value medicine :" << medicine_resistance << "\n\n";
+
 			p.TakeMedicine(medicine_resistance);
 		}
 	}
