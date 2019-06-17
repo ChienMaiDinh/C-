@@ -76,9 +76,7 @@ int Patient::TakeMedicine(int medicine_resistance){
 			std::cout << "My blood recently Virus :  " << (*iter)->Get_m_resistance() << "\n";
 			std::cout << "Total blood Virus : " << sumBloodVirus << "\n";
 			countVirus++;
-			temp = iter;
-			iter++;
-			m_virusList.erase(temp);
+			m_virusList.erase(iter++);
 			if (this->m_resistance < sumBloodVirus) {
 				std::cout << "Total blood patient just  " << this->m_resistance << " :E \n";
 				std::cout << " \n\n\t      You Die, You were killed by " << countVirus << " viruses in total "<< m_virusList.size() <<" Virus ";
@@ -86,17 +84,15 @@ int Patient::TakeMedicine(int medicine_resistance){
 				this->m_state = (0);
 			}
 		}else {
-				temp = iter;
-				iter++;
-				m_virusList.erase(temp);
+				m_virusList.erase(iter++);
 				if (iter == m_virusList.end()) {
-					std::cout << "\n\n\t    Congratulations , You Know Professinal kill Virus  \t\t";
+					std::cout << "\n\n\t    Congratulations , You Know Professional killer Virus  \t\t";
 					this->Set_m_state(0);
 				}
 		}
 	}
 	std::cout << "\n";
-	std::cout << "\t\t You have use take medicine value : " << medicine_resistance << "\n";
+	std::cout << "\t\t You have used take medicine value : " << medicine_resistance << "\n";
 	std::cout << "\t\t========================================\n\n";
 	return this->Get_m_state();
 }
