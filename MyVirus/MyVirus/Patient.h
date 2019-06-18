@@ -20,9 +20,8 @@ public:
 	void InitResistance();
 	void DoStart();
 	int TakeMedicine(int resistance);
-
 	int bornRanDomNumber(int head, int tail);
-	bool DoDie();
+	void DoDie();
 	Patient();
 	~Patient();
 };

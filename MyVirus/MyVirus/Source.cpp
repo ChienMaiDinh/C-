@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include "Patient.h"
 #include <iostream>
+#include "vld.h"
+
 
 int main()
 { 
@@ -27,7 +29,7 @@ int main()
 			int max = 60;
 			int medicine_resistance = min + (rand() % (int)(max - min + 1));
 			std::cout << "Value medicine :" << medicine_resistance << "\n\n";
-			p.TakeMedicine(medicine_resistance);
+			p.TakeMedicine(1);
 		}
 	}
 	system("pause");

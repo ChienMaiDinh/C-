@@ -5,10 +5,9 @@ class Flu : public MyVirus
 private: 
 	int m_color;	 //color of Flu virus is blue (value 0x0000ff) or red (value 0xff0000) 
 public:
-	std::list<MyVirus *> temp;
 	Flu(char * dna, int resistance, int color);
 	void DoBorn() override;
-	std::list<MyVirus*> Dodie() override;
+	void Dodie() override;
 	std::list<MyVirus*> Doclone() override;
 	void initresistance() override;
 	void Set_m_color(int color);
