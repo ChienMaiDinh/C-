@@ -14,12 +14,17 @@ Dengue::Dengue(){
 
 
 Dengue::~Dengue(){
-	Dodie();
+	this->Dodie();
 }
 
-Dengue::Dengue(char * dna, int resistance, std::string protein){
+Dengue::Dengue(Dengue *p)
+{
+}
+
+Dengue::Dengue(char * dna, int resistance, std::string protein) : MyVirus(m_dna, m_resistance) {
 	this->m_protein = protein;
 }
+
 
 std::string Dengue::Get_m_protein(){
 	return this->m_protein;
@@ -37,28 +42,26 @@ void Dengue::DoBorn(){
 }
 
 std::list<MyVirus *> Dengue::Doclone(){
-	//tao 1 ban sao goc vs 2 ban sao clone
-	temp.push_back(new Dengue(m_dna, MyVirus::Get_m_resistance(), this->m_protein));
-	temp.push_back(new Dengue(m_dna,MyVirus::Get_m_resistance(),this->m_protein));
-	temp.push_back(new Dengue(m_dna, MyVirus::Get_m_resistance(), this->m_protein));
-	std::list<MyVirus *> a;
-	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
-		//set mau lai sau khi ban goc bi tru
-		(*iter)->Set_m_resistance(this->m_resistance);
-		a.push_back(*iter);
+	//tao 2 ban sao clone
+	std::list<MyVirus *> list;
+	Dengue *p1 = new Dengue();
+	Dengue *p2 = new Dengue();
+	p1->m_resistance = this->m_resistance;
+	p1->m_protein = this->m_protein;
+	p2->m_resistance = this->m_resistance;
+	p2->m_protein = this->m_protein;
+	std::string str = this->m_dna;
+	for (int i = 0;i < str.size();i++)
+	{
+		p1->m_dna[i] = str[i];
+		p2->m_dna[i] = str[i];
 	}
-	a = temp;
-	temp.clear();
-	return a;
+	list.push_back(p1);
+	list.push_back(p2);
+	return list;
 }
-
-std::list<MyVirus*> Dengue::Dodie(){
-
-	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
-		delete *iter;
-	}
-	temp.clear();
-	return temp;
+void Dengue::Dodie(){
+	delete[]this->m_dna;
 }
 
 void Dengue::initresistance(){
@@ -74,5 +77,3 @@ void Dengue::initresistance(){
 		std::cout << " NS5 have " << m_resistance << " blood\n";
 	};
 }
-
- 

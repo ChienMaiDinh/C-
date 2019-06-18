@@ -23,25 +23,22 @@ void Flu::DoBorn(){
 	}
 }
 
-std::list<MyVirus*> Flu::Dodie(){
-	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
-		delete *iter;
-	}
-	temp.clear();
-	return temp;
+void Flu::Dodie(){
+	delete[]this->m_dna;	
 }
 
 std::list<MyVirus *> Flu::Doclone(){
-	temp.push_back(new Flu(m_dna, MyVirus::Get_m_resistance(),this->m_color));
-	temp.push_back(new Flu(m_dna, MyVirus::Get_m_resistance(), this->m_color));
-	std::list<MyVirus *> a ;
-	for (std::list<MyVirus *>::iterator iter = temp.begin();iter != temp.end();iter++) {
-		(*iter)->Set_m_resistance(this->m_resistance);
-		a.push_back(*iter);
+	std::list<MyVirus *> list;
+	Flu *flu = new Flu();
+	flu->m_resistance = this->m_resistance;
+	flu->m_color = this->m_color;
+	std::string str = this->m_dna;
+	for (int i = 0;i < str.size();i++)
+	{
+		flu->m_dna[i] = str[i];
 	}
-	a = temp;
-	temp.clear();
-	return a;
+	list.push_back(flu);
+	return list;
 }
 
 void Flu::initresistance(){
@@ -73,4 +70,5 @@ Flu::Flu(){
 
 
 Flu::~Flu(){
+	this->Dodie();
 }

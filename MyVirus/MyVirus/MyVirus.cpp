@@ -9,7 +9,6 @@ MyVirus::MyVirus(){
 }
 
 MyVirus::~MyVirus(){
-	delete m_dna;
 }
 
 MyVirus::MyVirus(char * dna, int resistance){
@@ -43,20 +42,12 @@ void MyVirus::LoadADNInformation(){
 	}else {
 		cout << "Load file Error\n" ;
 	}
+	
 }
 
 
-std::list<MyVirus*> MyVirus::ReduceResistance(int medicine_resistance){
+void MyVirus::ReduceResistance(int medicine_resistance){
 	this->m_resistance-= medicine_resistance;
-	if (this->m_resistance <= 0) {
-		//virus was destroyed
-		std::cout << "Killer Virus \n";
-		return Dodie();
-	}else {
-		// x Virus
-		std::cout << "Clone Virrus \n";
-		return Doclone();
-	}
 }
 
 
